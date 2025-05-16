@@ -16,9 +16,9 @@
 캠을 통해서 포트홀을 인식할 경우 아래의 코드를 통해서 움직인다
 ```python
 def handle_pothole_detected(self):
-  print("포트홀 감지됨! 모션 실행")
-  self.reset_timer.stop()
-  self.exeHumanoidMotion(19) #감지 시에 동작할 모션 설정
+    print("포트홀 감지됨! 모션 실행")
+    self.reset_timer.stop()
+    self.exeHumanoidMotion(19) #감지 시에 동작할 모션 설정
 ```
 ## 설치
 
