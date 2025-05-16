@@ -58,48 +58,33 @@ execute_motion("COM3", 1)
 - GUI 환경에서는 `QMessageBox`로 경고를 표시합니다.
 - CLI 환경에서는 오류 메시지를 출력합니다.
 
-## 학습 결과
+## 학습 결과 요약 (best.pt)
+## 학습 결과 요약 (주요 그래프 기반)
 
 ### 1. 주요 지표
 
-* **mAP@0.5:** 0.571 [cite: 6]
-* **Precision (Confidence 0.788):** 1.00 [cite: 5]
-* **Recall (Confidence 0.000):** 0.90 [cite: 7]
-* **F1 Score (at Confidence 0.340):** 0.57 [cite: 2]
+* **mAP@0.5:** 0.571 (Precision-Recall Curve 참고)
+* **포트홀 예측 정밀도:** 62% (Confusion Matrix 참고)
 
-### 2. 성능 분석
+### 2. 주요 그래프 분석
 
 * **Precision-Recall Curve:**
-    * 전반적으로 우하향하는 경향을 보이며, 이는 Recall을 높이려고 할 때 Precision이 급격히 감소함을 의미합니다.  
-    * 초반 Recall이 낮을 때는 Precision이 높지만, Recall이 증가함에 따라 Precision이 빠르게 감소하여 오탐이 증가하는 경향을 나타냅니다. [cite: 6]
-* **Precision-Confidence Curve:**
-    * Confidence가 높아질수록 Precision이 증가하지만, 특정 Confidence 이상에서는 Precision이 1.0에 도달합니다. [cite: 5]
-* **Recall-Confidence Curve:**
-    * Confidence가 낮아질수록 Recall이 증가하는 일반적인 경향을 보입니다. [cite: 7]
-* **F1-Confidence Curve:**
-    * F1 Score는 특정 Confidence 값에서 최대값을 가지며, Confidence가 너무 높거나 낮으면 성능이 저하됩니다. [cite: 2]
+    * 전반적으로 우하향하는 경향을 보이며, 이는 Recall을 높일 때 Precision이 감소하는 것을 의미합니다[cite: 6].
+    * 이는 포트홀을 더 많이 검출하려 할수록 오탐이 증가하는 trade-off를 나타냅니다.
+* **Confusion Matrix:**
+    * 포트홀로 예측한 결과 중 62%만이 실제 포트홀이었으며, 38%는 배경으로 오탐했습니다[cite: 1].
+    * 배경은 100% 정확하게 예측했습니다.
+* **학습 지표 (Results):**
+    * 학습 과정에서 손실(`box_loss`, `obj_loss`)은 감소하고, 성능 지표(`precision`, `recall`, `mAP`)는 증가하는 경향을 보였습니다[cite: 8].
+    * 이는 학습이 안정적으로 진행되었음을 시사합니다.
 
-### 3. 혼동 행렬 (Confusion Matrix)
+### 3. 결론 및 개선 방향
 
-* 포트홀로 예측한 결과 중 62%가 실제 포트홀이었고, 38%는 배경으로 잘못 예측했습니다. [cite: 1]
-* 배경으로 예측한 결과는 100%가 실제 배경이었습니다. [cite: 1]
+* mAP는 0.571로, 성능 향상을 위해 오탐 감소 및 Precision-Recall 균형 개선이 필요합니다.
+* 다양한 데이터를 확보하여 모델의 일반화 성능을 높이는 것이 중요합니다.
 
-### 4. 학습 과정
+ ### 4. 참고 자료
 
-* **손실(Loss):**
-    * `train/box_loss` 및 `val/box_loss`는 감소하는 경향을 보이며, 학습이 진행됨에 따라 bounding box 예측 성능이 향상됨을 나타냅니다. [cite: 8]
-    * `train/obj_loss` 및 `val/obj_loss`는 objectness loss로, 물체가 있는지 없는지를 예측하는 손실입니다. [cite: 8]
-* **지표(Metrics):**
-    * `metrics/precision`, `metrics/recall`, `metrics/mAP_0.5`, `metrics/mAP_0.5:0.95`는 학습이 진행됨에 따라 증가하는 경향을 보이며, 모델의 성능이 향상됨을 나타냅니다. [cite: 8]
-
-### 5. 레이블 분석
-
-* 데이터셋의 레이블 분포 및 bounding box의 위치, 크기 등에 대한 분석 결과는 다음과 같습니다. [cite: 3, 4]
-
-    * (레이블 분포, bounding box 위치/크기 관련 이미지 삽입 또는 분석 내용 요약)
-
-### 6.  종합 의견 및 개선 방향
-
-* 모델의 전반적인 성능은 mAP@0.5 = 0.571로, 개선의 여지가 있습니다.
-* Precision과 Recall 간의 균형을 맞추는 것이 중요하며, 특히 오탐을 줄여 Precision을 높이는 방향으로 모델을 개선할 필요가 있습니다.
-* 다양한 환경 조건에서의 데이터를 추가하여 모델의 일반화 성능을 향상시키는 것이 좋습니다.
+* [Precision-Recall Curve](PR_curve.png)
+* [Confusion Matrix](confusion_matrix.png)
+* [학습 지표](results.jpg)
