@@ -11,8 +11,10 @@
 필요한 패키지를 설치하려면 아래 명령어를 실행하세요:
 
 ```bash
-pip install pyqt5 pyserial
+pip install -r requirements.txt
 ```
+만약 설치가 안된다면 현재 경로와 requirements.txt 파일의 위치를 확인하고 이동해주세요
+
 
 ## 사용법
 
@@ -27,6 +29,9 @@ execute_motion("COM3", 1)
 
 - `port`: 로봇이 연결된 시리얼 포트 (예: "COM3").
 - `motion_id`: 실행할 모션의 ID (정수).
+
+#시리얼 포트를 지정하지 않는 경우
+-포트를 지정하지 않아도 프로그램을 실행하여 선택 가능
 
 ## 예외 처리
 
