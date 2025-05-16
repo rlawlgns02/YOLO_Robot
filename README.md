@@ -12,9 +12,9 @@
 ![Image](https://github.com/user-attachments/assets/b9ea69c6-b2c9-4399-a505-8159505a4900)
 
 
-캠을 통해서 아무것도 인식 되지 않을경우 로봇은 가만히 대기
-캠을 통해서 포트홀을 인식할 경우 아래의 코드를 통해서 동작
-
+ - 캠을 통해서 아무것도 인식 되지 않을경우 로봇은 가만히 대기
+ - 캠을 통해서 포트홀을 인식할 경우 아래의 코드를 통해서 동작
+# 
  
 `motion_controller.py`에 있는 `handle_pothole_detected` 함수를 이용해서 포트홀 감지시에 움직일 동작을 설정하세요:
 ```python
@@ -47,8 +47,8 @@ execute_motion("COM3", 1)
 - `port`: 로봇이 연결된 시리얼 포트 (예: "COM3").
 - `motion_id`: 실행할 모션의 ID (정수).
 
-#시리얼 포트를 지정하지 않는 경우
--포트를 지정하지 않아도 프로그램을 실행하여 선택 가능
+# 시리얼 포트를 지정하지 않는 경우
+ - 포트를 지정하지 않아도 프로그램을 실행하여 선택 가능
 ![Image](https://github.com/user-attachments/assets/a9a52cb8-158d-4fd4-a054-15251777a092)
 ![Image](https://github.com/user-attachments/assets/cf9b51f7-c989-402f-8683-c07dddf900d0)
 
