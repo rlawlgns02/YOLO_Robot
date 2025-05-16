@@ -59,8 +59,6 @@ execute_motion("COM3", 1)
 - CLI 환경에서는 오류 메시지를 출력합니다.
 
 ## 학습 결과 요약 (best.pt)
-## 학습 결과 요약 (주요 그래프 기반)
-
 ### 1. 주요 지표
 
 * **mAP@0.5:** 0.571 (Precision-Recall Curve 참고)
