@@ -1,11 +1,25 @@
 # YOLO_Robot
 
+
+
 ## 요구 사항
 
 - Python 3.8 이상
 - PyQt5
 - pyserial
 
+## 실행 화면
+![Image](https://github.com/user-attachments/assets/b9ea69c6-b2c9-4399-a505-8159505a4900)
+
+`
+캠을 통해서 아무것도 인식 되지 않을경우 로봇은 가만히 대기
+캠을 통해서 포트홀을 인식할 경우 아래의 코드를 통해서 움직인다
+```python
+def handle_pothole_detected(self):
+  print("포트홀 감지됨! 모션 실행")
+  self.reset_timer.stop()
+  self.exeHumanoidMotion(19) #감지 시에 동작할 모션 설정
+```
 ## 설치
 
 필요한 패키지를 설치하려면 아래 명령어를 실행하세요:
@@ -32,6 +46,8 @@ execute_motion("COM3", 1)
 
 #시리얼 포트를 지정하지 않는 경우
 -포트를 지정하지 않아도 프로그램을 실행하여 선택 가능
+![Image](https://github.com/user-attachments/assets/a9a52cb8-158d-4fd4-a054-15251777a092)
+![Image](https://github.com/user-attachments/assets/cf9b51f7-c989-402f-8683-c07dddf900d0)
 
 ## 예외 처리
 
