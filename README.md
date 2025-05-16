@@ -85,6 +85,6 @@ execute_motion("COM3", 1)
 
  ### 4. 참고 자료
 
-* [Precision-Recall Curve](PR_curve.png)
-* [Confusion Matrix](confusion_matrix.png)
-* [학습 지표](results.jpg)
+![Image](https://github.com/user-attachments/assets/c4348924-f686-430d-816b-663a12d7bf3c)
+![Image](https://github.com/user-attachments/assets/a6502078-2bda-43f7-b716-4967a4ae0299)
+![Image](https://github.com/user-attachments/assets/e3249a1f-5fe7-424b-b5cb-81d434f88da0)
