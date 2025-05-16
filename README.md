@@ -11,7 +11,7 @@
 ## 실행 화면
 ![Image](https://github.com/user-attachments/assets/b9ea69c6-b2c9-4399-a505-8159505a4900)
 
-`
+
 캠을 통해서 아무것도 인식 되지 않을경우 로봇은 가만히 대기
 캠을 통해서 포트홀을 인식할 경우 아래의 코드를 통해서 움직인다
 ```python
